@@ -8,7 +8,8 @@ const Login = () => {
     password: "",
   };
 
-  const { loginUser } = useUser();
+  const { loginUser, users } = useUser();
+
   const [user, setUser] = useState(initialUser);
   const handleFormOnChange = (event) => {
     setUser({ ...user, [event.target.id]: event.target.value });
@@ -18,10 +19,11 @@ const Login = () => {
     event.preventDefault();
     loginUser(user);
   };
+
   return (
     <form onSubmit={handleSubmit}>
-      <label htmlFor="Name">Name :</label>
-      <input type="text" id="Name" onChange={handleFormOnChange}></input>
+      <label htmlFor="name">Name :</label>
+      <input type="text" id="name" onChange={handleFormOnChange}></input>
       <label htmlFor="username">Username :</label>
       <input type="text" id="username" onChange={handleFormOnChange}></input>
       <label htmlFor="password">Password :</label>
@@ -30,7 +32,7 @@ const Login = () => {
         id="password"
         onChange={handleFormOnChange}
       ></input>
-      <button>Login</button>
+      {users.isAuthenticated ? <button>Logout</button> : <button>Login</button>}
     </form>
   );
 };
