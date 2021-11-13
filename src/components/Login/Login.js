@@ -7,7 +7,7 @@ const Login = () => {
     password: "",
   };
 
-  const [user, setUser] = useState();
+  const [user, setUser] = useState(initialUser);
   const handleFormOnChange = (event) => {
     setUser({ ...user, [event.target.id]: event.target.value });
   };
