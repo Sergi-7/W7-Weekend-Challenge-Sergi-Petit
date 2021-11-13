@@ -1,4 +1,5 @@
 import { useState } from "react";
+import useUser from "../../hooks/useUser";
 
 const Login = () => {
   const initialUser = {
@@ -7,6 +8,7 @@ const Login = () => {
     password: "",
   };
 
+  const { loginUser } = useUser();
   const [user, setUser] = useState(initialUser);
   const handleFormOnChange = (event) => {
     setUser({ ...user, [event.target.id]: event.target.value });
@@ -14,6 +16,7 @@ const Login = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    loginUser(user);
   };
   return (
     <form onSubmit={handleSubmit}>
