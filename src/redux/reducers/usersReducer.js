@@ -1,6 +1,6 @@
 import usersActionTypes from "../actions/usersActionTypes";
 
-const usersReducer = (action, user = { isAuthenticated: false, user: {} }) => {
+const usersReducer = (user = { isAuthenticated: false, user: {} }, action) => {
   let newUser;
   switch (action.type) {
     case usersActionTypes.loginUser:
