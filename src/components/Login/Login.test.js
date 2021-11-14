@@ -1,11 +1,12 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import renderWithProviders from "../../utils/test-utils";
 import Login from "./Login";
 
 describe("Given a Form component", () => {
   describe("When it's rendered", () => {
     test("Then it should display three inputs and a button", () => {
-      render(<Login />);
+      renderWithProviders(<Login />);
 
       const nameInput = screen.getByLabelText("Name :");
       const usernameInput = screen.getByLabelText("Username :");
@@ -20,7 +21,7 @@ describe("Given a Form component", () => {
   });
   describe("When the user types in the name input", () => {
     test("Then it should render the input with the text inside", () => {
-      render(<Login />);
+      renderWithProviders(<Login />);
       const typedWord = "fig";
 
       const nameInput = screen.getByLabelText("Name :");
