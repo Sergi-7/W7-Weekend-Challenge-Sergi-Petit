@@ -1,14 +1,16 @@
 import { useState } from "react";
-import useUser from "../../hooks/useUser";
+import useUsersList from "../../hooks/useUsersList";
 
-const Login = () => {
+const Register = () => {
   const initialUser = {
     name: "",
     username: "",
     password: "",
+    bio: "",
+    photo: "",
   };
 
-  const { loginUser, logoutUser, users } = useUser();
+  const { registerUser } = useUsersList();
 
   const [user, setUser] = useState(initialUser);
   const handleFormOnChange = (event) => {
@@ -17,18 +19,13 @@ const Login = () => {
 
   const handleSubmit = (event) => {
     console.log(user);
-    if (users.isAuthenticated) {
-      event.preventDefault();
-      logoutUser();
-    } else {
-      event.preventDefault();
-      loginUser(user);
-    }
+    event.preventDefault();
+    registerUser(user);
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      <h2>Login</h2>
+      <h2>Formulario de registro</h2>
       <label htmlFor="name">Name :</label>
       <input
         type="text"
@@ -50,9 +47,23 @@ const Login = () => {
         value={user.password}
         onChange={handleFormOnChange}
       ></input>
-      {users.isAuthenticated ? <button>Logout</button> : <button>Login</button>}
+      <label htmlFor="bio">Biography :</label>
+      <input
+        type="text"
+        id="bio"
+        value={user.bio}
+        onChange={handleFormOnChange}
+      ></input>
+      <label htmlFor="photo">Photo :</label>
+      <input
+        type="text"
+        id="photo"
+        value={user.photo}
+        onChange={handleFormOnChange}
+      ></input>
+      <button>Submit</button>
     </form>
   );
 };
 
-export default Login;
+export default Register;
