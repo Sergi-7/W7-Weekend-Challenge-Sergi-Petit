@@ -1,5 +1,4 @@
 import { useState } from "react";
-import useUser from "../../hooks/useUser";
 import useUsersList from "../../hooks/useUsersList";
 
 const Register = () => {
