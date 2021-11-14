@@ -20,4 +20,20 @@ describe("Given a usersReducer", () => {
       expect(newLoggedUser).toHaveProperty("isAuthenticated", true);
     });
   });
+  describe("When it receives a logoutUser function", () => {
+    test("Then it should return a user with a property isAuthenticated false", () => {
+      const user = {
+        username: "isnat",
+        password: "santi",
+      };
+
+      const action = {
+        type: usersActionTypes.logoutUser,
+      };
+
+      const newUser = usersReducer(user, action);
+
+      expect(newUser).toHaveProperty("isAuthenticated", false);
+    });
+  });
 });
