@@ -1,5 +1,9 @@
 import usersActionTypes from "./usersActionTypes";
-import { loginUserAction, logoutUserAction } from "./usersActionCreators";
+import {
+  loginUserAction,
+  logoutUserAction,
+  registerUserAction,
+} from "./usersActionCreators";
 
 describe("Given a loginUserAction", () => {
   describe("When it receives a user", () => {
@@ -29,6 +33,27 @@ describe("Given a logoutUserAction", () => {
       };
 
       const actionResult = logoutUserAction();
+
+      expect(actionResult).toEqual(expectedAction);
+    });
+  });
+});
+
+describe("Given a registerUserAction", () => {
+  describe("When it is called", () => {
+    test("Then it should return a registerUserAction with user received", () => {
+      const newUser = {
+        name: "isnat",
+        username: "santi",
+        password: "fig",
+        bio: "asd",
+        photo: "das",
+      };
+      const expectedAction = {
+        type: usersActionTypes.registerUser,
+        user: newUser,
+      };
+      const actionResult = registerUserAction(newUser);
 
       expect(actionResult).toEqual(expectedAction);
     });
