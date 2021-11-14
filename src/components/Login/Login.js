@@ -8,7 +8,7 @@ const Login = () => {
     password: "",
   };
 
-  const { loginUser, users } = useUser();
+  const { loginUser, logoutUser, users } = useUser();
 
   const [user, setUser] = useState(initialUser);
   const handleFormOnChange = (event) => {
@@ -16,8 +16,13 @@ const Login = () => {
   };
 
   const handleSubmit = (event) => {
-    event.preventDefault();
-    loginUser(user);
+    if (users.isAuthenticated) {
+      event.preventDefault();
+      logoutUser();
+    } else {
+      event.preventDefault();
+      loginUser(user);
+    }
   };
 
   return (
