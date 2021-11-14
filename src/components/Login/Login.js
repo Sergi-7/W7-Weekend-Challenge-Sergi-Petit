@@ -32,6 +32,7 @@ const Login = () => {
       <input
         type="text"
         id="name"
+        autoComplete="off"
         value={user.name}
         onChange={handleFormOnChange}
       ></input>
@@ -39,6 +40,7 @@ const Login = () => {
       <input
         type="text"
         id="username"
+        autoComplete="off"
         value={user.username}
         onChange={handleFormOnChange}
       ></input>
@@ -46,6 +48,7 @@ const Login = () => {
       <input
         type="password"
         id="password"
+        autoComplete="off"
         value={user.password}
         onChange={handleFormOnChange}
       ></input>
