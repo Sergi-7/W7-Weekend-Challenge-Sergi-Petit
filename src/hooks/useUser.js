@@ -1,7 +1,6 @@
 import { useCallback } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { logoutUserAction } from "../redux/actions/usersActionCreators";
 import { loginUserThunk, logoutUserThunk } from "../redux/thunks/usersThunks";
 
 const useUser = () => {
@@ -16,7 +15,7 @@ const useUser = () => {
 
   const logoutUser = useCallback(() => {
     localStorage.removeItem("user");
-    dispatch(logoutUserAction());
+    dispatch(logoutUserThunk());
   }, [dispatch]);
 
   return {
