@@ -18,7 +18,6 @@ const Register = () => {
   };
 
   const handleSubmit = (event) => {
-    console.log(user);
     event.preventDefault();
     registerUser(user);
   };

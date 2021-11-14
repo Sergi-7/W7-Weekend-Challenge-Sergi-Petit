@@ -16,7 +16,6 @@ const Login = () => {
   };
 
   const handleSubmit = (event) => {
-    console.log(user);
     if (users.isAuthenticated) {
       event.preventDefault();
       logoutUser();
