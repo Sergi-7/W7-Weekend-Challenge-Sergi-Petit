@@ -5,10 +5,11 @@ import {
   logoutUserAction,
 } from "../actions/usersActionCreators";
 
-const url = process.env.REACT_APP_SERVER_URL;
+const url = process.env.REACT_APP_SERVER_TEST;
+// process.env.REACT_APP_SERVER_URL;
 
 export const loginUserThunk = (user) => async (dispatch) => {
-  const { data: token } = await axios.post(`${url}/users/login`, user);
+  const { data: token } = await axios.post(`${url}users/login`, user);
   localStorage.setItem("user", token.token);
   const userData = jwtDecode(token.token);
   dispatch(loginUserAction(userData));

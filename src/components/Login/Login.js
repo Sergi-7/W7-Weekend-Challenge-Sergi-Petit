@@ -16,6 +16,7 @@ const Login = () => {
   };
 
   const handleSubmit = (event) => {
+    console.log(user);
     if (users.isAuthenticated) {
       event.preventDefault();
       logoutUser();
@@ -29,13 +30,24 @@ const Login = () => {
     <form onSubmit={handleSubmit}>
       <h2>Login</h2>
       <label htmlFor="name">Name :</label>
-      <input type="text" id="name" onChange={handleFormOnChange}></input>
+      <input
+        type="text"
+        id="name"
+        value={user.name}
+        onChange={handleFormOnChange}
+      ></input>
       <label htmlFor="username">Username :</label>
-      <input type="text" id="username" onChange={handleFormOnChange}></input>
+      <input
+        type="text"
+        id="username"
+        value={user.username}
+        onChange={handleFormOnChange}
+      ></input>
       <label htmlFor="password">Password :</label>
       <input
         type="password"
         id="password"
+        value={user.password}
         onChange={handleFormOnChange}
       ></input>
       {users.isAuthenticated ? <button>Logout</button> : <button>Login</button>}
