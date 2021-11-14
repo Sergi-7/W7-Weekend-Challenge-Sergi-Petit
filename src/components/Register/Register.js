@@ -30,12 +30,14 @@ const Register = () => {
         type="text"
         id="name"
         value={user.name}
+        autoComplete="off"
         onChange={handleFormOnChange}
       ></input>
       <label htmlFor="username">Username :</label>
       <input
         type="text"
         id="username"
+        autoComplete="off"
         value={user.username}
         onChange={handleFormOnChange}
       ></input>
@@ -43,6 +45,7 @@ const Register = () => {
       <input
         type="password"
         id="password"
+        autoComplete="off"
         value={user.password}
         onChange={handleFormOnChange}
       ></input>
@@ -50,6 +53,7 @@ const Register = () => {
       <input
         type="text"
         id="bio"
+        autoComplete="off"
         value={user.bio}
         onChange={handleFormOnChange}
       ></input>
@@ -57,6 +61,7 @@ const Register = () => {
       <input
         type="text"
         id="photo"
+        autoComplete="off"
         value={user.photo}
         onChange={handleFormOnChange}
       ></input>
