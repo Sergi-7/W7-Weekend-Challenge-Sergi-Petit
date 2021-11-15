@@ -1,6 +1,9 @@
 import { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { registerUserThunk } from "../redux/thunks/usersListThunks";
+import {
+  registerUserThunk,
+  loadUsersThunk,
+} from "../redux/thunks/usersListThunks";
 
 const useUsersList = () => {
   const usersList = useSelector(({ usersList }) => usersList);
@@ -14,9 +17,13 @@ const useUsersList = () => {
     [dispatch]
   );
 
+  const loadUsers = useCallback(() => {
+    dispatch(loadUsersThunk());
+  }, [dispatch]);
   return {
     usersList,
     registerUser,
+    loadUsers,
   };
 };
 

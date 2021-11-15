@@ -4,8 +4,8 @@ const Nav = () => {
   return (
     <>
       <nav>
-        <Link to="/register">Register</Link>
         <Link to="/">Homepage</Link>
+        <Link to="/register">Register</Link>
       </nav>
     </>
   );
